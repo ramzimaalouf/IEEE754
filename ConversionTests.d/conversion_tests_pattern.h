@@ -18,7 +18,7 @@
 #if !defined(CONVERSION_TESTS_PATTERN_H_)
 #define CONVERSION_TESTS_PATTERN_H_
 
-#include "globals.h"
+#include "../include.d/globals.h"
 #include "conversion_templates.h"
 
 enum e_CONVERSION_TESTS {

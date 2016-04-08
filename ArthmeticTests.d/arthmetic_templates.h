@@ -17,7 +17,7 @@
 
 #include <stdio.h>
 #include <math.h>
-#include "globals.h"
+#include "../include.d/globals.h"
 
 #if !defined(ARTHMETIC_TEMPLATES_H_)
 #define ARTHMETIC_TEMPLATES_H_

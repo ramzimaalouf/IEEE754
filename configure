@@ -4243,7 +4243,6 @@ cat >>confdefs.h <<_ACEOF
 _ACEOF
 
 
-AX_CHECK_COMPILE_FLAG(-std=c++11, AX_APPEND_FLAG([-std=c++11]),)
 
 # Extract the first word of "$target_alias-strip", so it can be a program name with args.
 set dummy $target_alias-strip; ac_word=$2

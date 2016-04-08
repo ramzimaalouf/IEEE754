@@ -15,7 +15,7 @@
  * 
  ******************************************************************************/
 
-#include "globals.h"
+#include "../include.d/globals.h"
 #include "conversion_templates.h"
 #include "conversion_tests.h"
 #include "conversion_tests_pattern.h"

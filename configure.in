@@ -32,7 +32,6 @@ AC_CHECK_SIZEOF(long long)
 AC_CHECK_SIZEOF(long double)
 AC_CHECK_SIZEOF(uint64_t)
 AC_CHECK_SIZEOF(uint128_t)
-AX_CHECK_COMPILE_FLAG([-std=c++11], [AX_APPEND_FLAG([-std=c++11]),]) 
 
 AC_CHECK_TARGET_TOOL([STRIP],strip, no)
 if test "x$STRIP" == "xno" ; then

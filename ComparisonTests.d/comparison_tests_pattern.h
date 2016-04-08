@@ -18,7 +18,7 @@
 #if !defined(COMPARISON_TESTS_PATTERN_H_)
 #define COMPARISON_TESTS_PATTERN_H_
 
-#include "globals.h"
+#include "../include.d/globals.h"
 #include "comparison_templates.h"
 
 enum e_COMPARISON_TESTS {

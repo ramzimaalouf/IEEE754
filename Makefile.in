@@ -22,7 +22,7 @@ NM=@NM@
 LD=@CXX@
 
 TARGET=ieee_754_1985
-CPP_SOURCES=main.cpp arthmetic_tests.cpp comparison_tests.cpp conversion_tests.cpp
+CPP_SOURCES=main.cpp ArthmeticTests.d/arthmetic_tests.cpp ComparisonTests.d/comparison_tests.cpp ConversionTests.d/conversion_tests.cpp
 C_ALWAYS_COMPILE=time.c
 A_SOURCES= 
 C_ALWAYS_OBJS=${C_ALWAYS_COMPILE:%.c=%.o}
@@ -54,11 +54,11 @@ endif
 
 .c.o:
 	@echo "(COMPILING) $<"
-	@${GCC} ${CPPFLAGS} ${CFLAGS} -c $< 
+	@${GCC} ${CPPFLAGS} ${CFLAGS} -c $< -o $*.o
 
 .cpp.o:
 	@echo "(COMPILING) $<"
-	@${GCC} ${CPPFLAGS} ${CFLAGS} -c $< 
+	@${GCC} ${CPPFLAGS} ${CFLAGS} -c $< -o $*.o
 
 %.d: %.c
 	@echo "(GENERATING DEPENDENCY) $*.d"

@@ -24,10 +24,8 @@
 #include <fenv.h>
 #include <stdint.h>
 #include "time.h"
-#include "globals.h"
-#include "arthmetic_tests.h"
-#include "comparison_tests.h"
-#include "conversion_tests.h"
+#include "include.d/globals.h"
+#include "include.d/defined_tests.h"
 
 /* version number.  Note: the bug release is a normally a date code */
 #define MAJOR_REVISION 0

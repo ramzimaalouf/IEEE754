@@ -15,7 +15,7 @@
  * 
  ******************************************************************************/
 
-#include "globals.h"
+#include "../include.d/globals.h"
 #include "comparison_templates.h"
 #include "comparison_tests.h"
 #include "comparison_tests_pattern.h"

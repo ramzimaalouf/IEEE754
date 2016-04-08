@@ -20,7 +20,7 @@
 #if !defined(ARTHMETIC_TESTS_PATTERN_H_)
 #define ARTHMETIC_PATTERN_H_
 
-#include "globals.h"
+#include "../include.d/globals.h"
 #include "arthmetic_templates.h"
 enum e_ARTHMETIC_TESTS {
   e_ADD = 0,
