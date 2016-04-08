@@ -5,7 +5,8 @@
  * File Name : arthmetic_tests.h
  * 
  * Description : 
- * 
+ *   -- This will defined the enumarated tests that will be run.  It provides
+ *   -- basic support to the arthmetic class.
  * Version : 0.1.0
  * 
  * Created Date : November 05 2015

@@ -5,7 +5,8 @@
  * File Name : ArthmeticTemplates.c
  * 
  * Description : 
- * 
+ *   -- this defines the templates for testing.  This will be used for float
+ *   -- or double (if enabled).
  * Version : 0.1.0
  * 
  * Created Date : November 05 2025

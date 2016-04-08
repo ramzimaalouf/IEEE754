@@ -5,7 +5,7 @@
  * File Name : arthmetic_tests.h
  * 
  * Description : 
- * 
+ *     -- the is the interface of the test that will be used by main()
  * Version : 0.1.0
  * 
  * Created Date : November 05 2015
