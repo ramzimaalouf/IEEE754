@@ -1,3 +1,3 @@
 # IEEE1394 
 
-this is a verification software to test if the software/hardware implementation of the IEEE1394--floating point--specificiations is compliant.  Note:  This is for 1985 spec.
+This is verification software to test implementation(software or hardware) compliance of the IEEE1394--floating point--  Note:  This is for 1985 spec.
