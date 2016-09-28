@@ -17,7 +17,9 @@
  ******************************************************************************/
 AC_INIT(main.cpp)
 
-AC_CANONICAL_SYSTEM
+AC_USE_SYSTEM_EXTENSIONS
+AC_CANONICAL_TARGET
+AC_CANONICAL_HOST
 AC_PROG_CXX
 AC_ARG_PROGRAM
 AC_HEADER_STDC
@@ -30,8 +32,8 @@ AC_CHECK_SIZEOF(float)
 AC_CHECK_SIZEOF(double)
 AC_CHECK_SIZEOF(long long)
 AC_CHECK_SIZEOF(long double)
-AC_CHECK_SIZEOF(uint64_t)
-AC_CHECK_SIZEOF(uint128_t)
+AC_CHECK_SIZEOF(long)
+AC_CHECK_SIZEOF(long long)
 
 AC_CHECK_TARGET_TOOL([STRIP],strip, no)
 if test "x$STRIP" == "xno" ; then
