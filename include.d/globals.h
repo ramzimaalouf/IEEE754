@@ -23,10 +23,6 @@
 #if !defined (GLOBALS_H_)
 #define GLOBALS_H_
 
-#if !defined(UINT64_C)
-#define 	UINT64_C(value)   __CONCAT(value, ULL)
-#endif
-
 #define TESTS_START 100
 #define FLOAT_START TESTS_START
 #define DOUBLE_START FLOAT_START+50
@@ -40,8 +36,17 @@
 #define CONVERSION_FLOAT CONVERSION_TESTS_START
 #define CONVERSION_DOUBLE CONVERSION_FLOAT +50
 
+
+#if  (SIZEOF_LONG==SIZEOF_DOUBLE)
+#define LONG_SIZED_DOUBLE long
+#elif (SIZEOF_LONG_LONG==SIZEOF_DOUBLE)
+#define LONG_SIZED_DOUBLE long long
+#else
+#undef LONG_SIZED_DOUBLE
+#endif
+
 /* Which formats to include */
-#define DO_DOUBLES  (defined(HAVE_UNSIGNED_LONG_LONG_INT) && (SIZEOF_UINT64_T==SIZEOF_DOUBLE))
+#define DO_DOUBLES  (defined(LONG_SIZED_DOUBLE))
 #define DO_LONG_DOUBLES defined(HAVE_LONG_DOUBLE) && (SIZEOF_UINT128_T==SIZEOF_LONG_DOUBLE)
 
 
@@ -65,9 +70,10 @@ typedef union _FloatTestType {
 } FloatTestType; 
 #endif
 
+
 #if DO_DOUBLES
 typedef union _DoubleTestType {
-     uint64_t BitPattern;
+     LONG_SIZED_DOUBLE BitPattern;
      double Number;
 } DoubleTestType;
 #endif

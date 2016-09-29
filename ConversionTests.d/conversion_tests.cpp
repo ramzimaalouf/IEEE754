@@ -79,7 +79,7 @@ bool ConversionTests::RunDoubleConversionTests()
 #if DO_DOUBLES
   DoubleTestType TestPattern1 ;
   DoubleTestType TestPattern2 ;
-  uint64_t ExpectedPattern;
+  LONG_SIZED_DOUBLE ExpectedPattern;
 
   // Existence Tests of all operations
   // ConvertToInteger 
