@@ -44,7 +44,7 @@ bool MathTests::RunFloatMathTests()
 {
   FloatTestType TestPattern1 ;
   FloatTestType TestPattern2 ;
-  FloatTestType ReturnedPattern; 
+  __attribute__ ((unused)) FloatTestType ReturnedPattern; 
   FloatTestType ExpectedPattern;
 
   // Existence Tests of all operations
@@ -170,7 +170,7 @@ bool MathTests::RunDoubleMathTests()
 #if DO_DOUBLES
   DoubleTestType TestPattern1 ;
   DoubleTestType TestPattern2 ;
-  DoubleTestType ReturnedPattern; 
+  __attribute__ ((unused)) DoubleTestType ReturnedPattern; 
   DoubleTestType ExpectedPattern;
 
   // Existence Tests of all operations

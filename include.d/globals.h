@@ -38,9 +38,11 @@
 
 
 #if  (SIZEOF_LONG==SIZEOF_DOUBLE)
-#define LONG_SIZED_DOUBLE long
+#define LONG_SIZED_DOUBLE unsigned long
+#define UNSIGNED LONG_SIZED_DOUBLE long
 #elif (SIZEOF_LONG_LONG==SIZEOF_DOUBLE)
 #define LONG_SIZED_DOUBLE long long
+#define UNSIGNED_LONG_SIZED_DOUBLE unsigned long long
 #else
 #undef LONG_SIZED_DOUBLE
 #endif
@@ -73,7 +75,7 @@ typedef union _FloatTestType {
 
 #if DO_DOUBLES
 typedef union _DoubleTestType {
-     LONG_SIZED_DOUBLE BitPattern;
+     UNSIGNED_LONG_SIZED_DOUBLE BitPattern;
      double Number;
 } DoubleTestType;
 #endif

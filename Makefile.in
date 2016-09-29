@@ -30,7 +30,8 @@ C_OBJS=${C_SOURCES:%.c=%.o}
 CPP_OBJS=${CPP_SOURCES:%.cpp=%.o}
 A_OBJS=${A_SOURCES:%.s=%.o} 
 OBJS=${C_OBJS} ${A_OBJS} ${CPP_OBJS}
-SOURCES_DEPENDS=${C_ALWAYS_COMPILE:%.c=%.d} ${C_SOURCES:%.c=%.d} ${CPP_SOURCES:%.cpp=%.d}
+C_SOURCES_DEPENDS=${C_ALWAYS_COMPILE:%.c=%.d} ${C_SOURCES:%.c=%.d}
+CPP_SOURCES_DEPENDS=${CPP_SOURCES:%.cpp=%.d}
 
 INCLUDE_DIRS=
 CPPFLAGS+=@CPPFLAGS@ ${INCLUDE_DIRS} -DBUG_RELEASE_REVISION=\"`date "+%j%m%Y"`\" -Wall
@@ -44,7 +45,7 @@ endif
 
 all: ${TARGET} 
 
-${TARGET}: ${OBJS} Makefile  ${C_ALWAYS_OBJS} ${SOURCES_DEPENDS} 
+${TARGET}: ${OBJS} Makefile  ${C_ALWAYS_OBJS} ${C_SOURCES_DEPENDS} ${CPP_SOURCES_DEPENDS}
 	@echo "(LINKING)"
 	@${LD} ${LDFLAGS} ${OBJS} ${C_ALWAYS_OBJS} -o $@
 	@${OBJDUMP} -D $@ > $@.dissassembled
@@ -62,11 +63,11 @@ endif
 
 %.d: %.c
 	@echo "(GENERATING DEPENDENCY) $*.d"
-	@${GCC} ${CPPFLAGS} -M $< > $*.d
+	@${GCC} ${CPPFLAGS} -M -MT $*.o $< > $*.d
 
 %.d: %.cpp
 	@echo "(GENERATING DEPENDENCY) $*.d"
-	@${GCC} ${CPPFLAGS} -M $< > $*.d
+	@${GCC} ${CPPFLAGS} -M -MT $*.o $< > $*.d
 
 .PHONY: clean veryclean 
 
@@ -82,7 +83,8 @@ clean:
 
 veryclean: clean
 	@echo "(SUPER CLEANDING)"
-	@rm -rf ${SOURCES_DEPENDS} 
+	@rm -rf ${C_SOURCES_DEPENDS} 
+	@rm -rf ${CPP_SOURCES_DEPENDS} 
 	@rm -rf config.log config.status 
 	@rm -rf autom4te.cache
 
@@ -91,4 +93,5 @@ distclean: veryclean
 	@rm -rf Makefile
 	@rm -rf config.h
 
--include ${SOURCES_DEPENDS} 
+-include ${C_SOURCES_DEPENDS} 
+-include ${CPP_SOURCES_DEPENDS}

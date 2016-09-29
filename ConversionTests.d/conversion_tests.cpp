@@ -42,7 +42,7 @@ bool ConversionTests::RunAll()
 bool ConversionTests::RunFloatConversionTests()
 {
   FloatTestType TestPattern1 ;
-  FloatTestType TestPattern2 ;
+  __attribute__ ((unused)) FloatTestType TestPattern2 ;
   uint32_t ExpectedPattern;
 
   // Existence Tests of all operations
@@ -78,7 +78,7 @@ bool ConversionTests::RunDoubleConversionTests()
 {
 #if DO_DOUBLES
   DoubleTestType TestPattern1 ;
-  DoubleTestType TestPattern2 ;
+  __attribute__ ((unused)) DoubleTestType TestPattern2 ;
   LONG_SIZED_DOUBLE ExpectedPattern;
 
   // Existence Tests of all operations
