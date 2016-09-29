@@ -38,8 +38,8 @@
 
 
 #if  (SIZEOF_LONG==SIZEOF_DOUBLE)
-#define LONG_SIZED_DOUBLE unsigned long
-#define UNSIGNED LONG_SIZED_DOUBLE long
+#define LONG_SIZED_DOUBLE long
+#define UNSIGNED_LONG_SIZED_DOUBLE unsigned long
 #elif (SIZEOF_LONG_LONG==SIZEOF_DOUBLE)
 #define LONG_SIZED_DOUBLE long long
 #define UNSIGNED_LONG_SIZED_DOUBLE unsigned long long
