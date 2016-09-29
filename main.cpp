@@ -122,13 +122,24 @@ int main(int argc, char *argv[])
     pConversionTest = NULL;
 
     /* Set Rounding mode to Nearest */
-    fesetround(FE_TONEAREST);
+    if (0 != fesetround(FE_TONEAREST)) {
+        fprintf(stderr, "Failed to change Round mode\n");
+    }
     /* Set Rounding mode to Positive Infinity */
-    fesetround(FE_UPWARD);
+    if (0 != fesetround(FE_UPWARD)) {
+       fprintf(stderr, "Failed to change Round mode\n");
+    }
+
     /* Set Rounding mode to negative Infinity */
-    fesetround(FE_DOWNWARD);
+    if (0 !=  fesetround(FE_DOWNWARD)) {
+       fprintf(stderr, "Failed to change Round mode\n");
+    }
+
     /* Set Rounding mode to zero */
-    fesetround(FE_TOWARDZERO);
+    if (0 !=  fesetround(FE_TOWARDZERO)) {
+       fprintf(stderr, "Failed to change Round mode\n");
+    }
+
     fprintf(stdout,"%s: Done Error Count %d\n",argv[0],g_iErrorCount);
   } 
   return t_iError;
