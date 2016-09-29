@@ -23,6 +23,10 @@
 #if !defined (GLOBALS_H_)
 #define GLOBALS_H_
 
+#if !defined(UINT64_C)
+#define UINT64_C(c) c ## ULL
+#endif
+
 #define TESTS_START 100
 #define FLOAT_START TESTS_START
 #define DOUBLE_START FLOAT_START+50
