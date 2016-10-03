@@ -2,11 +2,9 @@
  * Copyright 2015 Ramzi Maalouf (fourthmuskeeter@yahoo.com).
  *      All rights reserved.
  * 
- * File Name : arthmetic_tests.c
+ * File Name : rounding_tests.c
  * 
  * Description : 
- *   -- this will execute the tests defined in the template header file, 
- *   -- whether they are float or double.
  * Version : 0.1.0
  * 
  * Created Date : November 05 2015
@@ -17,30 +15,11 @@
  ******************************************************************************/
 
 #include "../include.d/globals.h"
-#include "arthmetic_templates.h"
-#include "arthmetic_tests.h"
-#include "arthmetic_tests_pattern.h"
+#include "../ArthmaticTests.d/arthmatic_templates.h"
+#include "rounding_tests_pattern.h"
+#include "rounding_tests.h"
 
-MathTests::MathTests () 
-{
-  m_bConstructionStatus  = true;
-}
-
-
-MathTests::~MathTests ()
-{
-  return;
-}
-
-bool MathTests::RunAll()
-{
-  RunFloatMathTests();
-  RunDoubleMathTests();
-  RunLongDoubleMathTests();
-  return true;
-}
-
-bool MathTests::RunFloatMathTests()
+bool RoundingTests::RunFloatRoundingToZeroTests()
 {
   FloatTestType TestPattern1 ;
   FloatTestType TestPattern2 ;
@@ -165,7 +144,7 @@ bool MathTests::RunFloatMathTests()
   return true;
 }
     
-bool MathTests::RunDoubleMathTests()
+bool RoundingTests::RunDoubleRoundingToZeroTests()
 {
 #if DO_DOUBLES
   DoubleTestType TestPattern1 ;
@@ -270,7 +249,7 @@ bool MathTests::RunDoubleMathTests()
   return false;
 }
 
-bool MathTests::RunLongDoubleMathTests()
+bool RoundingTests::RunLongDoubleRoundingToZeroTests()
 {
 #if DO_LONG_DOUBLES
 #endif

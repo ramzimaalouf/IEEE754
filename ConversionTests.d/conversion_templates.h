@@ -29,8 +29,8 @@ template <class TypeA, class TypeB  >
   char t_pFormat [80];
   Result = (TypeB) Input1;
 
-  fprintf(stdout, "Test ID: %4.4d %-20.20s ",TestID, Description);
   if (Result != Expected) {
+     fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
      sprintf(t_pFormat,"%%s 0x%%*.*%s ",(t_iNumberOfBytes==SIZEOF_LONG_LONG)?"llx":"x");
 
     fprintf(stdout,t_pFormat,"Failed Result ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Result);
@@ -38,9 +38,10 @@ template <class TypeA, class TypeB  >
     fprintf(stdout,t_pFormat,"Difference ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected ^ Result);
     fprintf(stdout,"\n");
     t_bReturn = false;
-  } else {
+  } else if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
+     fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     fprintf(stdout,"Passed\n");
-  }
+  } 
 
  return t_bReturn;
 }

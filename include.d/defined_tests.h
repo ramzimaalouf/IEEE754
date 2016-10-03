@@ -18,8 +18,9 @@
 #if !defined (DEFINED_TESTS_H_)
 #define DEFINED_TESTS_H_
 
-#include "../ArthmeticTests.d/arthmetic_tests.h"
+#include "../ArthmaticTests.d/arthmatic_tests.h"
 #include "../ConversionTests.d/conversion_tests.h"
 #include "../ComparisonTests.d/comparison_tests.h"
+#include "../RoundingTests.d/rounding_tests.h"
 #endif
 

@@ -2,7 +2,7 @@
  * Copyright 2015 Ramzi Maalouf (fourthmuskeeter@yahoo.com).
  *      All rights reserved.
  * 
- * File Name : arthmetic_tests.h
+ * File Name : arthmatic_tests.h
  * 
  * Description : 
  *     -- the is the interface of the test that will be used by main()
@@ -15,8 +15,8 @@
  * 
  ******************************************************************************/
 
-#if !defined(ARTHMETIC_TESTS_H_)
-#define ARTHMETIC_TESTS_H_
+#if !defined(ARTHMaTIC_TESTS_H_)
+#define ARTHMaTIC_TESTS_H_
 
 class MathTests
 {

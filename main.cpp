@@ -62,6 +62,7 @@ int main(int argc, char *argv[])
   MathTests *pMathTest = NULL;
   ComparisonTests *pComparisonTest = NULL;
   ConversionTests *pConversionTest = NULL;
+  RoundingTests *pRoundingTest = NULL;
   g_iVerbosityFlag = DEFAULT_DEBUG_LEVEL;
   g_iIntermediateRegisterWidth = 0;
 
@@ -94,9 +95,11 @@ int main(int argc, char *argv[])
   }
 
   if (t_iError == 0) {
+    if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
     Version(argv[0]);
     fprintf(stdout,"%s:\tDebug Level:\t\t\t %d\n",argv[0],g_iVerbosityFlag);
     fprintf(stdout,"%s:\tIntermediate Register Width:\t %d\n",argv[0],g_iIntermediateRegisterWidth);
+    }
     g_iErrorCount= 0;
 
     pMathTest = new MathTests;
@@ -121,25 +124,30 @@ int main(int argc, char *argv[])
     delete pConversionTest;
     pConversionTest = NULL;
 
+    pRoundingTest = new RoundingTests;
+    if (pRoundingTest->m_bConstructionStatus) {
+      pRoundingTest->RunAll();
+    }
+
+    delete pRoundingTest;
+    pRoundingTest = NULL;
+
+
     /* Set Rounding mode to Nearest */
     if ((0 != fesetround(FE_TONEAREST)) && (FE_TONEAREST == fegetround())){
-        fprintf(stderr, "Failed to change Round mode\n");
+      fprintf(stderr, "Failed to change Round mode\n");
     }
 
     /* Set Rounding mode to Positive Infinity */
     if ((0 != fesetround(FE_UPWARD)) && (FE_UPWARD== fegetround())){
-       fprintf(stderr, "Failed to change Round mode\n");
+      fprintf(stderr, "Failed to change Round mode\n");
     }
 
     /* Set Rounding mode to negative Infinity */
     if ((0 != fesetround(FE_DOWNWARD )) && (FE_DOWNWARD == fegetround())){
-       fprintf(stderr, "Failed to change Round mode\n");
+      fprintf(stderr, "Failed to change Round mode\n");
     }
 
-    /* Set Rounding mode to zero */
-    if ((0 != fesetround(FE_TOWARDZERO)) && (FE_TOWARDZERO == fegetround())){
-       fprintf(stderr, "Failed to change Round mode\n");
-    }
 
     fprintf(stdout,"%s: Done Error Count %d\n",argv[0],g_iErrorCount);
   } 
