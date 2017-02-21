@@ -28,9 +28,10 @@ class ComparisonTests
   bool RunDoubleComparisonTests();
   bool RunLongDoubleComparisonTests();
   
-  bool m_bConstructionStatus;
+  bool ReturnConstructionStatus () const;
+  
  private:
-
+  bool m_bConstructionStatus;
 };
 
 #endif

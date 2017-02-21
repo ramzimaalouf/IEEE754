@@ -19,7 +19,7 @@
 #include "rounding_tests_pattern.h"
 #include "rounding_tests.h"
 
-bool RoundingTests::RunFloatRoundingToZeroTests()
+bool RoundingTests::RunFloatRoundingToNegativeInfinityTests()
 {
   FloatTestType TestPattern1 ;
   FloatTestType TestPattern2 ;
@@ -29,86 +29,86 @@ bool RoundingTests::RunFloatRoundingToZeroTests()
   bool t_bReturn = true;
   
   /* Set Rounding mode to zero */
-  if ((0 != fesetround(FE_TOWARDZERO)) && (FE_TOWARDZERO == fegetround())){
-    fprintf(stderr, "Failed to change Round to Zero mode\n");
+  if ((0 != fesetround(FE_DOWNWARD)) && (FE_DOWNWARD == fegetround())){
+    fprintf(stderr, "Failed to change Round to NEGATIVE INFINITY mode\n");
     t_bReturn = false;
   } else {
 
     // Existence Tests of all operations
     // Add 
     TestPattern1.BitPattern =
-      FloatArthmeticTestsToZero[e_ADD].FloatPattern1.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_ADD].FloatPattern1.BitPattern;
     TestPattern2.BitPattern =
-      FloatArthmeticTestsToZero[e_ADD].FloatPattern2.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_ADD].FloatPattern2.BitPattern;
     ExpectedPattern.BitPattern =
-      FloatArthmeticTestsToZero[e_ADD].FloatPattern3.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_ADD].FloatPattern3.BitPattern;
   
     if (!Add<>(TestPattern1,
 	       TestPattern2,
 	       ExpectedPattern,
-	       FloatArthmeticTestsToZero[e_ADD].TestID,
-	       FloatArthmeticTestsToZero[e_ADD].Description )) { g_iErrorCount ++;};
+	       FloatArthmeticTestsToNegativeInfinity[e_ADD].TestID,
+	       FloatArthmeticTestsToNegativeInfinity[e_ADD].Description )) { g_iErrorCount ++;};
  
 
     // Subtract
     TestPattern1.BitPattern =
-      FloatArthmeticTestsToZero[e_SUBTRACT].FloatPattern1.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_SUBTRACT].FloatPattern1.BitPattern;
     TestPattern2.BitPattern =
-      FloatArthmeticTestsToZero[e_SUBTRACT].FloatPattern2.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_SUBTRACT].FloatPattern2.BitPattern;
     ExpectedPattern.BitPattern =
-      FloatArthmeticTestsToZero[e_SUBTRACT].FloatPattern3.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_SUBTRACT].FloatPattern3.BitPattern;
   
     if(!Subtract<>(TestPattern1,
 		   TestPattern2,
 		   ExpectedPattern,
-		   FloatArthmeticTestsToZero[e_SUBTRACT].TestID,
-		   FloatArthmeticTestsToZero[e_SUBTRACT].Description )) {g_iErrorCount++;};
+		   FloatArthmeticTestsToNegativeInfinity[e_SUBTRACT].TestID,
+		   FloatArthmeticTestsToNegativeInfinity[e_SUBTRACT].Description )) {g_iErrorCount++;};
 
     // Multiply  
     TestPattern1.BitPattern =
-      FloatArthmeticTestsToZero[e_MULTIPLY].FloatPattern1.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_MULTIPLY].FloatPattern1.BitPattern;
     TestPattern2.BitPattern =
-      FloatArthmeticTestsToZero[e_MULTIPLY].FloatPattern2.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_MULTIPLY].FloatPattern2.BitPattern;
     ExpectedPattern.BitPattern =
-      FloatArthmeticTestsToZero[e_MULTIPLY].FloatPattern3.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_MULTIPLY].FloatPattern3.BitPattern;
   
     if(!Multiply<>(TestPattern1,
 		   TestPattern2,
 		   ExpectedPattern,
-		   FloatArthmeticTestsToZero[e_MULTIPLY].TestID,
-		   FloatArthmeticTestsToZero[e_MULTIPLY].Description )) {g_iErrorCount++;};
+		   FloatArthmeticTestsToNegativeInfinity[e_MULTIPLY].TestID,
+		   FloatArthmeticTestsToNegativeInfinity[e_MULTIPLY].Description )) {g_iErrorCount++;};
 
     // Divide 
     TestPattern1.BitPattern =
-      FloatArthmeticTestsToZero[e_DIVIDE].FloatPattern1.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_DIVIDE].FloatPattern1.BitPattern;
     TestPattern2.BitPattern =
-      FloatArthmeticTestsToZero[e_DIVIDE].FloatPattern2.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_DIVIDE].FloatPattern2.BitPattern;
     ExpectedPattern.BitPattern =
-      FloatArthmeticTestsToZero[e_DIVIDE].FloatPattern3.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_DIVIDE].FloatPattern3.BitPattern;
   
     if(!Divide<>(TestPattern1,
 		 TestPattern2,
 		 ExpectedPattern,
-		 FloatArthmeticTestsToZero[e_DIVIDE].TestID,
-		 FloatArthmeticTestsToZero[e_DIVIDE].Description )) {g_iErrorCount++;};
+		 FloatArthmeticTestsToNegativeInfinity[e_DIVIDE].TestID,
+		 FloatArthmeticTestsToNegativeInfinity[e_DIVIDE].Description )) {g_iErrorCount++;};
 
 
     //Square Root 
     TestPattern1.BitPattern =
-      FloatArthmeticTestsToZero[e_SQUAREROOT].FloatPattern1.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_SQUAREROOT].FloatPattern1.BitPattern;
     ExpectedPattern.BitPattern =
-      FloatArthmeticTestsToZero[e_SQUAREROOT].FloatPattern2.BitPattern;
+      FloatArthmeticTestsToNegativeInfinity[e_SQUAREROOT].FloatPattern2.BitPattern;
 
     if(!SquareRoot<>(TestPattern1,
 		     ExpectedPattern,
-		     FloatArthmeticTestsToZero[e_SQUAREROOT].TestID,
-		     FloatArthmeticTestsToZero[e_SQUAREROOT].Description )) {g_iErrorCount++;};
+		     FloatArthmeticTestsToNegativeInfinity[e_SQUAREROOT].TestID,
+		     FloatArthmeticTestsToNegativeInfinity[e_SQUAREROOT].Description )) {g_iErrorCount++;};
 
   } 
   return t_bReturn;
 }
     
-bool RoundingTests::RunDoubleRoundingToZeroTests()
+bool RoundingTests::RunDoubleRoundingToNegativeInfinityTests()
 {
 #if DO_DOUBLES
   DoubleTestType TestPattern1 ;
@@ -191,7 +191,7 @@ bool RoundingTests::RunDoubleRoundingToZeroTests()
   return false;
 }
 
-bool RoundingTests::RunLongDoubleRoundingToZeroTests()
+bool RoundingTests::RunLongDoubleRoundingToNegativeInfinityTests()
 {
 #if DO_LONG_DOUBLES
 #endif

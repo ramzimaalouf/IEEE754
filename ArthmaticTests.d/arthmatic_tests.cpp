@@ -32,6 +32,11 @@ MathTests::~MathTests ()
   return;
 }
 
+bool MathTests::ReturnConstuctionStatus () const
+{
+  return m_bConstructionStatus;
+}
+
 bool MathTests::RunAll()
 {
   RunFloatMathTests();

@@ -30,11 +30,28 @@ RoundingTests::~RoundingTests ()
   return;
 }
 
+bool RoundingTests::ReturnConstructionStatus () const
+{
+  return m_bConstructionStatus;
+}
+
 bool RoundingTests::RunAll()
 {
   RunFloatRoundingToZeroTests();
   RunDoubleRoundingToZeroTests();
   RunLongDoubleRoundingToZeroTests();
+
+  RunFloatRoundingToNearestTests();
+  RunDoubleRoundingToNearestTests();
+  RunLongDoubleRoundingToNearestTests();
+
+  RunFloatRoundingToNegativeInfinityTests();
+  RunDoubleRoundingToNegativeInfinityTests();
+  RunLongDoubleRoundingToNegativeInfinityTests();
+
+  RunFloatRoundingToPositiveInfinityTests();
+  RunDoubleRoundingToPositiveInfinityTests();
+  RunLongDoubleRoundingToPositiveInfinityTests();
   return true;
 }
 

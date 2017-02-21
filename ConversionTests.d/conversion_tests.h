@@ -28,9 +28,9 @@ class ConversionTests
   bool RunDoubleConversionTests();
   bool RunLongDoubleConversionTests();
   
-  bool m_bConstructionStatus;
+  bool ReturnConstructionStatus () const;
  private:
-
+  bool m_bConstructionStatus;
 };
 
 #endif

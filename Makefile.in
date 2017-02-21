@@ -23,7 +23,7 @@ NM=@NM@
 LD=@CXX@
 
 TARGET=ieee_754_1985
-CPP_SOURCES=main.cpp ArthmaticTests.d/arthmatic_tests.cpp ComparisonTests.d/comparison_tests.cpp ConversionTests.d/conversion_tests.cpp RoundingTests.d/rounding_tests.cpp RoundingTests.d/rounding_to_zero_tests.cpp
+CPP_SOURCES=main.cpp ArthmaticTests.d/arthmatic_tests.cpp ComparisonTests.d/comparison_tests.cpp ConversionTests.d/conversion_tests.cpp RoundingTests.d/rounding_tests.cpp RoundingTests.d/rounding_to_zero_tests.cpp RoundingTests.d/rounding_to_positive_infinity.cpp RoundingTests.d/rounding_to_nearest.cpp RoundingTests.d/rounding_to_negative_infinity.cpp
 C_ALWAYS_COMPILE=time.c
 A_SOURCES= 
 C_ALWAYS_OBJS=${C_ALWAYS_COMPILE:%.c=%.o}
@@ -37,6 +37,7 @@ CPP_SOURCES_DEPENDS=${CPP_SOURCES:%.cpp=%.d}
 INCLUDE_DIRS=
 CPPFLAGS+=@CPPFLAGS@ ${INCLUDE_DIRS} -DBUG_RELEASE_REVISION=\"`date "+%j%m%Y"`\" -Wall -frounding-math -fsignaling-nans
 CFLAGS+=-O2 
+CXXFLAGS=@CXXFLAGS@
 LIB_PATHS=
 LDFLAGS+=${LIB_PATHS} @LIBS@ @LDFLAGS@ 
 .SUFFIXES: .c .o .d .cpp
@@ -60,7 +61,7 @@ endif
 
 .cpp.o:
 	@echo "(COMPILING) $<"
-	@${GXX} ${CPPFLAGS} ${CFLAGS} -c $< -o $*.o
+	@${GXX} ${CPPFLAGS} ${CFLAGS} ${CXXFLAGS} -c $< -o $*.o
 
 %.d: %.c
 	@echo "(GENERATING DEPENDENCY) $*.d"
@@ -68,7 +69,7 @@ endif
 
 %.d: %.cpp
 	@echo "(GENERATING DEPENDENCY) $*.d"
-	@${GXX} ${CPPFLAGS} -M -MT $*.o $< > $*.d
+	@${GXX} ${CPPFLAGS} ${CXXFLAGS} -M -MT $*.o $< > $*.d
 
 .PHONY: clean veryclean 
 

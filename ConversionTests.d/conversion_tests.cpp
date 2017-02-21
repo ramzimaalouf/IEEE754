@@ -31,6 +31,10 @@ ConversionTests::~ConversionTests ()
   return;
 }
 
+bool ConversionTests::ReturnConstructionStatus () const
+{
+  return m_bConstructionStatus;
+}
 bool ConversionTests::RunAll()
 {
   RunFloatConversionTests();

@@ -39,6 +39,11 @@ bool ComparisonTests::RunAll()
   return true;
 }
 
+bool ComparisonTests::ReturnConstructionStatus () const
+{
+  return m_bConstructionStatus;
+}
+
 bool ComparisonTests::RunFloatComparisonTests()
 {
   FloatTestType TestPattern1 ;

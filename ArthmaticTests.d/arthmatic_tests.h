@@ -28,9 +28,11 @@ class MathTests
   bool RunDoubleMathTests();
   bool RunLongDoubleMathTests();
   
-  bool m_bConstructionStatus;
- private:
+  bool ReturnConstuctionStatus () const;
 
+ private:
+  bool m_bConstructionStatus;
+  
 };
 
 #endif

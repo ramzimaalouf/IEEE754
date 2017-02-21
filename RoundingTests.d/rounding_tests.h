@@ -23,6 +23,7 @@ class RoundingTests
  public:
   RoundingTests();
   ~RoundingTests();
+
   bool RunAll ();
   bool RunFloatRoundingToZeroTests();
   bool RunDoubleRoundingToZeroTests();
@@ -32,17 +33,17 @@ class RoundingTests
   bool RunDoubleRoundingToPositiveInfinityTests();
   bool RunLongDoubleRoundingToPositiveInfinityTests();
 
-  bool RunFloatRoundingToNegitiveInfinityTests();
-  bool RunDoubleRoundingToNegitiveInfinityTests();
-  bool RunLongDoubleRoundingToNegitiveInfinityTests();
+  bool RunFloatRoundingToNegativeInfinityTests();
+  bool RunDoubleRoundingToNegativeInfinityTests();
+  bool RunLongDoubleRoundingToNegativeInfinityTests();
 
   bool RunFloatRoundingToNearestTests();
   bool RunDoubleRoundingToNearestTests();
   bool RunLongDoubleRoundingToNearestTests();
 
-  bool m_bConstructionStatus;
+  bool ReturnConstructionStatus () const;
  private:
-
+  bool m_bConstructionStatus;
 };
 
 #endif

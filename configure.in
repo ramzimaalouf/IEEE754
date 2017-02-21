@@ -33,6 +33,8 @@ AC_CHECK_SIZEOF(long)
 AC_CHECK_SIZEOF(long long)
 AC_CHECK_SIZEOF(long double)
 
+AX_CHECK_COMPILE_FLAG(-std=c++11, [CXXFLAGS="$CPPFLAGS -std=c++11"])
+
 AC_CHECK_TARGET_TOOL([STRIP],strip, no)
 if test "x$STRIP" == "xno" ; then
 AC_MSG_ERROR([Unable to find appropriate strip])
@@ -63,6 +65,7 @@ AC_SUBST(OBJDUMP)
 AC_SUBST(STRIP)
 AC_SUBST(AS)
 AC_SUBST(CPPFLAGS)
+AC_SUBST(CXXFLAGS)
 AC_SUBST(LDFLAGS)
 AC_CONFIG_HEADERS(config.h)
 AC_OUTPUT(Makefile)
