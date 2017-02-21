@@ -15,7 +15,8 @@
 #*    0.1    RSM    Initial Release
 #*
 #******************************************************************************/
-GCC=@CXX@
+GXX=@CXX@
+GCC=@CC@
 OBJDUMP=@OBJDUMP@
 STRIP=@STRIP@
 NM=@NM@
@@ -59,7 +60,7 @@ endif
 
 .cpp.o:
 	@echo "(COMPILING) $<"
-	@${GCC} ${CPPFLAGS} ${CFLAGS} -c $< -o $*.o
+	@${GXX} ${CPPFLAGS} ${CFLAGS} -c $< -o $*.o
 
 %.d: %.c
 	@echo "(GENERATING DEPENDENCY) $*.d"
@@ -67,7 +68,7 @@ endif
 
 %.d: %.cpp
 	@echo "(GENERATING DEPENDENCY) $*.d"
-	@${GCC} ${CPPFLAGS} -M -MT $*.o $< > $*.d
+	@${GXX} ${CPPFLAGS} -M -MT $*.o $< > $*.d
 
 .PHONY: clean veryclean 
 
