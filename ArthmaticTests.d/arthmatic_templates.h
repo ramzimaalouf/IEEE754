@@ -32,7 +32,7 @@ template <class TypeA, class TypeB, class TypeC>
  
   Result.Number = Input1.Number + Input2.Number;
   if (Result.BitPattern != Expected.BitPattern ) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     sprintf(t_pFormat,"%%s 0x%%*.*%s ",(t_iNumberOfBytes==SIZEOF_LONG_LONG)?"llx":"x");
     fprintf(stdout,t_pFormat,"Failed Result ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Result.BitPattern);
     fprintf(stdout,t_pFormat,"Expected ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern);
@@ -40,11 +40,11 @@ template <class TypeA, class TypeB, class TypeC>
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 
- return t_bReturn;
+  return t_bReturn;
 }
 
 template <class TypeA, class TypeB, class TypeC>
@@ -59,7 +59,7 @@ template <class TypeA, class TypeB, class TypeC>
  
   Result.Number = Input1.Number - Input2.Number;
   if (Result.BitPattern != Expected.BitPattern ) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     sprintf(t_pFormat,"%%s 0x%%*.*%s ",(t_iNumberOfBytes==SIZEOF_LONG_LONG)?"llx":"x");
     fprintf(stdout,t_pFormat,"Failed Result ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Result.BitPattern);
     fprintf(stdout,t_pFormat,"Expected ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern);
@@ -67,7 +67,7 @@ template <class TypeA, class TypeB, class TypeC>
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 
@@ -83,7 +83,7 @@ template <class TypeA, class TypeB, class TypeC>
 
   Result.Number = Input1.Number * Input2.Number;
   if (Result.BitPattern != Expected.BitPattern ) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     sprintf(t_pFormat,"%%s 0x%%*.*%s ",(t_iNumberOfBytes==SIZEOF_LONG_LONG)?"llx":"x");
     fprintf(stdout,t_pFormat,"Failed Result ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Result.BitPattern);
     fprintf(stdout,t_pFormat,"Expected ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern);
@@ -91,7 +91,7 @@ template <class TypeA, class TypeB, class TypeC>
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 
@@ -108,7 +108,7 @@ template <class TypeA, class TypeB, class TypeC>
   Result.Number = Input1.Number / Input2.Number;
 
   if (Result.BitPattern != Expected.BitPattern ) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     sprintf(t_pFormat,"%%s 0x%%*.*%s ",(t_iNumberOfBytes==SIZEOF_LONG_LONG)?"llx":"x");
     fprintf(stdout,t_pFormat,"Failed Result ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Result.BitPattern);
     fprintf(stdout,t_pFormat,"Expected ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern);
@@ -116,11 +116,11 @@ template <class TypeA, class TypeB, class TypeC>
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else  if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL)  {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 
- return t_bReturn;
+  return t_bReturn;
 }
 
 template <class TypeA, class TypeB, class TypeC>
@@ -133,7 +133,7 @@ template <class TypeA, class TypeB, class TypeC>
   Result.Number = Input1.Number % Input2.Number;
 
   if (Result.BitPattern != Expected.BitPattern ) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     sprintf(t_pFormat,"%%s 0x%%*.*%s ",(t_iNumberOfBytes==SIZEOF_LONG_LONG)?"llx":"x");
     fprintf(stdout,t_pFormat,"Failed Result ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Result.BitPattern);
     fprintf(stdout,t_pFormat,"Expected ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern);
@@ -141,7 +141,7 @@ template <class TypeA, class TypeB, class TypeC>
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL)  {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 
@@ -158,8 +158,7 @@ template <class TypeA , class TypeB >
   Result.Number = sqrt(Input1.Number);
 
   if (Result.BitPattern != Expected.BitPattern ) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
-  fprintf(stdout, " Result %f Expected Value %g \n",Result.Number, Input1.Number);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     sprintf(t_pFormat,"%%s 0x%%*.*%s ",(t_iNumberOfBytes==SIZEOF_LONG_LONG)?"llx":"x");
     fprintf(stdout,t_pFormat,"Failed Result ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Result.BitPattern);
     fprintf(stdout,t_pFormat,"Expected ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern);
@@ -167,7 +166,7 @@ template <class TypeA , class TypeB >
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL)  {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+    fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 

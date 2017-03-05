@@ -23,7 +23,7 @@ NM=@NM@
 LD=@CXX@
 
 TARGET=ieee_754_1985
-CPP_SOURCES=main.cpp ArthmaticTests.d/arthmatic_tests.cpp ComparisonTests.d/comparison_tests.cpp ConversionTests.d/conversion_tests.cpp RoundingTests.d/rounding_tests.cpp RoundingTests.d/rounding_to_zero_tests.cpp RoundingTests.d/rounding_to_positive_infinity.cpp RoundingTests.d/rounding_to_nearest.cpp RoundingTests.d/rounding_to_negative_infinity.cpp
+CPP_SOURCES=main.cpp ArthmaticTests.d/arthmatic_tests.cpp ComparisonTests.d/comparison_tests.cpp ConversionTests.d/conversion_tests.cpp RoundingTests.d/rounding_tests.cpp 
 C_ALWAYS_COMPILE=time.c
 A_SOURCES= 
 C_ALWAYS_OBJS=${C_ALWAYS_COMPILE:%.c=%.o}

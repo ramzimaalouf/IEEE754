@@ -14,36 +14,29 @@
  *    0.1    RSM    Initial Release
  * 
  ******************************************************************************/
-
 #if !defined(ROUNDING_TESTS_H_)
 #define ROUNDING_TESTS_H_
 
 class RoundingTests
 {
  public:
-  RoundingTests();
+  RoundingTests(const int TestType);
   ~RoundingTests();
 
   bool RunAll ();
-  bool RunFloatRoundingToZeroTests();
-  bool RunDoubleRoundingToZeroTests();
-  bool RunLongDoubleRoundingToZeroTests();
-  
-  bool RunFloatRoundingToPositiveInfinityTests();
-  bool RunDoubleRoundingToPositiveInfinityTests();
-  bool RunLongDoubleRoundingToPositiveInfinityTests();
-
-  bool RunFloatRoundingToNegativeInfinityTests();
-  bool RunDoubleRoundingToNegativeInfinityTests();
-  bool RunLongDoubleRoundingToNegativeInfinityTests();
-
-  bool RunFloatRoundingToNearestTests();
-  bool RunDoubleRoundingToNearestTests();
-  bool RunLongDoubleRoundingToNearestTests();
 
   bool ReturnConstructionStatus () const;
  private:
-  bool m_bConstructionStatus;
+  bool RunFloatRounding();
+  bool RunDoubleRounding();
+  bool RunLongDoubleRounding();
+  char m_cRoundingTypeString[32] ;
+  int m_iTestType = -1;
+  FloatTestDescription *m_FloatTestDecriptions = NULL;
+  DoubleTestDescription *m_DoubleTestDescriptions = NULL;
+  int m_iTestOffset = 0;
+  bool m_bConstructionStatus = false;
+
 };
 
 #endif

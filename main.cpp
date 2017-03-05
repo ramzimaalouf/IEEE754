@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
   if (t_iError == 0) {
     if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
     Version(argv[0]);
-    fprintf(stdout,"%s:\tDebug Level:\t\t\t %d\n",argv[0],g_iVerbosityFlag);
+    fprintf(stdout,"%s:\tDebug Level:\t %d\n",argv[0],g_iVerbosityFlag);
     fprintf(stdout,"%s:\tIntermediate Register Width:\t %d\n",argv[0],g_iIntermediateRegisterWidth);
     }
     g_iErrorCount= 0;
@@ -124,7 +124,8 @@ int main(int argc, char *argv[])
     delete pConversionTest;
     pConversionTest = NULL;
 
-    pRoundingTest = new RoundingTests;
+    /* All Rounding Tests */
+    pRoundingTest = new RoundingTests (FE_TOWARDZERO);
     if (pRoundingTest->ReturnConstructionStatus()) {
       pRoundingTest->RunAll();
     }
@@ -132,6 +133,30 @@ int main(int argc, char *argv[])
     delete pRoundingTest;
     pRoundingTest = NULL;
 
+    pRoundingTest = new RoundingTests (FE_TONEAREST);
+    if (pRoundingTest->ReturnConstructionStatus()) {
+      pRoundingTest->RunAll();
+    }
+
+    delete pRoundingTest;
+    pRoundingTest = NULL;
+
+    pRoundingTest = new RoundingTests (FE_UPWARD);
+    if (pRoundingTest->ReturnConstructionStatus()) {
+      pRoundingTest->RunAll();
+    }
+
+    delete pRoundingTest;
+    pRoundingTest = NULL;
+
+
+    pRoundingTest = new RoundingTests (FE_DOWNWARD);
+    if (pRoundingTest->ReturnConstructionStatus()) {
+      pRoundingTest->RunAll();
+    }
+
+    delete pRoundingTest;
+    pRoundingTest = NULL;
 
     fprintf(stdout,"%s: Done Error Count %d\n",argv[0],g_iErrorCount);
   } 
