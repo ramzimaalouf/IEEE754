@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2015 Ramzi Maalouf (fourthmuskeeter@yahoo.com).
+ * Copyright 2016 Ramzi Maalouf (fourthmuskeeter@yahoo.com).
  *           All rights reserved.
  *
  * File Name : configure.in
@@ -9,7 +9,7 @@
  *
  * Version : 0.1.0
  *
- * Created Date : November 05 2015
+ * Created Date : November 05 2016
  *
  * Modification History :
  *    0.1    RSM    Initial Release
@@ -35,6 +35,7 @@ AC_CHECK_SIZEOF(long double)
 
 AX_CHECK_COMPILE_FLAG(-std=c++11, [CXXFLAGS="$CPPFLAGS -std=c++11"])
 
+AC_CHECK_LIB(m,pow)
 AC_CHECK_TARGET_TOOL([STRIP],strip, no)
 if test "x$STRIP" == "xno" ; then
 AC_MSG_ERROR([Unable to find appropriate strip])

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2015 Ramzi Maalouf (fourthmuskeeter@yahoo.com).
+ * Copyright 2016 Ramzi Maalouf (fourthmuskeeter@yahoo.com).
  *      All rights reserved.
  * 
  * File Name : rounding_tests.h
@@ -8,7 +8,7 @@
  *
  * Version : 0.1.0
  * 
- * Created Date : November 05 2015
+ * Created Date : November 05 2016
  * 
  * Modification History :
  *    0.1    RSM    Initial Release
@@ -28,6 +28,7 @@ class RoundingTests
   bool ReturnConstructionStatus () const;
  private:
   bool RunFloatRounding();
+  bool RunFloatsSubset(FloatTestDescription *InFloatDescriptors) const; 
   bool RunDoubleRounding();
   bool RunLongDoubleRounding();
   char m_cRoundingTypeString[32] ;

@@ -27,13 +27,13 @@ template <class TypeA, class TypeB >
   bool t_bReturn = true;
   Result = Input1.Number == Input2.Number;
   if (Result != Expected) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Failed Result %s ", Result ?"True": "False");
     fprintf(stdout,"Expected %s", Expected ? "True" : "False");
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 
@@ -49,13 +49,13 @@ template <class TypeA, class TypeB >
   Result = Input1.Number != Input2.Number;
 
   if (Result != Expected ) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Failed Result %s ", Result ?"True": "False");
     fprintf(stdout,"Expected %s", Expected ? "True" : "False");
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 
@@ -70,13 +70,13 @@ template <class TypeA, class TypeB>
   Result = Input1.Number > Input2.Number;
 
   if (Result != Expected ) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Failed Result %s ", Result ?"True": "False");
     fprintf(stdout,"Expected %s", Expected ? "True" : "False");
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL)  {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 
@@ -91,13 +91,13 @@ template <class TypeA, class TypeB>
   Result = Input1.Number >= Input2.Number;
 
   if (Result != Expected ) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Failed Result %s ", Result ?"True": "False");
     fprintf(stdout,"Expected %s", Expected ? "True" : "False");
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 
@@ -112,13 +112,13 @@ template <class TypeA, class TypeB>
   Result = Input1.Number < Input2.Number;
 
   if (Result != Expected ) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Failed Result %s ", Result ?"True": "False");
     fprintf(stdout,"Expected %s", Expected ? "True" : "False");
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 
@@ -133,13 +133,13 @@ template <class TypeA, class TypeB>
   Result = Input1.Number <= Input2.Number;
 
   if (Result != Expected ) {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Failed Result %s ", Result ?"True": "False");
     fprintf(stdout,"Expected %s", Expected ? "True" : "False");
     fprintf(stdout,"\n");
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL)  {
-  fprintf(stdout, "Test ID: %4.4d %-30.30s ",TestID, Description);
+  fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
     fprintf(stdout,"Passed\n");
   }
 
