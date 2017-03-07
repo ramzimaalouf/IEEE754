@@ -2,9 +2,11 @@
  * Copyright 2016 Ramzi Maalouf (fourthmuskeeter@yahoo.com).
  *      All rights reserved.
  * 
- * File Name : time.c
+ * File Name : defined_tests.h 
  * 
  * Description : 
+ *   -- This is master include file, the includes all the currently defined
+ *   -- tests
  * 
  * Version : 0.1.0
  * 

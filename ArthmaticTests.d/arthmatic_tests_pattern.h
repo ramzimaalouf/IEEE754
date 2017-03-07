@@ -5,8 +5,8 @@
  * File Name : arthmatic_tests.h
  * 
  * Description : 
- *   -- This will defined the enumarated tests that will be run.  It provides
- *   -- basic support to the arthmatic class.
+ *   -- This will define the enumarated tests that will be run.
+ *
  * Version : 0.1.0
  * 
  * Created Date : November 05 2016
@@ -23,6 +23,7 @@
 
 #include "../include.d/globals.h"
 #include "arthmatic_templates.h"
+
 enum e_ARTHMATIC_TESTS {
   e_ADD = 0,
   e_SUBTRACT,

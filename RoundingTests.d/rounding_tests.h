@@ -5,6 +5,7 @@
  * File Name : rounding_tests.h
  * 
  * Description : 
+ *   -- This class definition of the RoundTests class
  *
  * Version : 0.1.0
  * 
@@ -29,11 +30,12 @@ class RoundingTests
  private:
   bool RunFloatRounding();
   bool RunFloatsSubset(FloatTestDescription *InFloatDescriptors) const; 
+  bool RunDoubleSubset(DoubleTestDescription *InDoubleDescriptors) const; 
   bool RunDoubleRounding();
   bool RunLongDoubleRounding();
   char m_cRoundingTypeString[32] ;
   int m_iTestType = -1;
-  FloatTestDescription *m_FloatTestDecriptions = NULL;
+  FloatTestDescription *m_FloatTestDescriptions = NULL;
   DoubleTestDescription *m_DoubleTestDescriptions = NULL;
   int m_iTestOffset = 0;
   bool m_bConstructionStatus = false;

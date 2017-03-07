@@ -7,6 +7,7 @@
  * Description : 
  *   -- this will execute the tests defined in the template header file, 
  *   -- whether they are float or double.
+ *
  * Version : 0.1.0
  * 
  * Created Date : November 05 2016
@@ -29,6 +30,7 @@ MathTests::MathTests ()
 
 MathTests::~MathTests ()
 {
+  m_bConstructionStatus  = false;
   return;
 }
 

@@ -5,6 +5,8 @@
  * File Name : main.cpp
  *
  * Description :
+ *   -- this exeutable tests compliance with IEEE 754 (currently 1985) standard
+ *   -- 
  *
  * Version : 0.1.0
  *

@@ -5,6 +5,7 @@
  * File Name : comparison_templates.h
  * 
  * Description : 
+ *   -- this is the template definitions of the comparison tests
  * 
  * Version : 0.1.0
  * 

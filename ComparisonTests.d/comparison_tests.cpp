@@ -2,9 +2,10 @@
  * Copyright 2016 Ramzi Maalouf (fourthmuskeeter@yahoo.com).
  *      All rights reserved.
  * 
- * File Name : arthmetic_tests.c
+ * File Name : ComparisonTests.c
  * 
  * Description : 
+ *   -- This the methods for the class ComparisionTests
  * 
  * Version : 0.1.0
  * 
@@ -28,6 +29,7 @@ ComparisonTests::ComparisonTests ()
 
 ComparisonTests::~ComparisonTests ()
 {
+  m_bConstructionStatus  = false;
   return;
 }
 

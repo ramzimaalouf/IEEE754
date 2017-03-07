@@ -5,6 +5,7 @@
  * File Name : rounding_tests.c
  * 
  * Description : 
+ *   -- This has all the methods defined for the class RoundingTests
  * Version : 0.1.0
  * 
  * Created Date : November 05 2016
@@ -24,29 +25,29 @@ RoundingTests::RoundingTests (const int TestType)
 {
   switch(TestType) {
   case FE_TONEAREST:
-    m_FloatTestDecriptions = FloatArthmeticTestsToNearest;
-    m_DoubleTestDescriptions  = NULL ;
+    m_FloatTestDescriptions = FloatArthmeticTestsToNearest;
+    m_DoubleTestDescriptions  = DoubleArthmeticTestsToNearest ;
     m_bConstructionStatus = true;
     m_iTestType = TestType;
     strcpy(m_cRoundingTypeString, "To Nearest\0");
     break;
   case FE_TOWARDZERO:
-    m_FloatTestDecriptions = FloatArthmeticTestsToZero;
-    m_DoubleTestDescriptions  = NULL ;
+    m_FloatTestDescriptions = FloatArthmeticTestsToZero;
+    m_DoubleTestDescriptions  = DoubleArthmeticTestsToZero;
     m_bConstructionStatus = true;
     m_iTestType = TestType;
     strcpy(m_cRoundingTypeString, "Toward Zero\0");
     break;
   case FE_DOWNWARD:
-    m_FloatTestDecriptions = FloatArthmeticTestsToNegativeInfinity;
-    m_DoubleTestDescriptions  = NULL ;
+    m_FloatTestDescriptions = FloatArthmeticTestsToNegativeInfinity;
+    m_DoubleTestDescriptions  = DoubleArthmeticTestsToNegativeInfinity;
     m_bConstructionStatus = true;
     m_iTestType = TestType;
     strcpy(m_cRoundingTypeString, "To Negative Infinity\0");
     break;
   case FE_UPWARD:
-    m_FloatTestDecriptions = FloatArthmeticTestsToPositiveInfinity;
-    m_DoubleTestDescriptions  = NULL ;
+    m_FloatTestDescriptions = FloatArthmeticTestsToPositiveInfinity;
+    m_DoubleTestDescriptions  = DoubleArthmeticTestsToPositiveInfinity;
     m_bConstructionStatus = true;
     m_iTestType = TestType;
     strcpy(m_cRoundingTypeString, "To Positive InFinity\0");
@@ -78,8 +79,8 @@ bool RoundingTests::RunAll()
     }
     t_bReturn = RunFloatRounding();
     if (!t_bReturn) { break; } ;
-    // t_bReturn = RunDoubleRounding();
-    // if (!t_bReturn) { break; } ;
+    t_bReturn = RunDoubleRounding();
+    if (!t_bReturn) { break; } ;
     //    t_bReturn = RunLongDoubleRounding();
     //   if (!t_bReturn) { break; } ;
   } while (0);
@@ -104,27 +105,64 @@ bool RoundingTests::RunFloatRounding()
 
     //Square Root 
     TestPattern1.BitPattern =
-      m_FloatTestDecriptions[e_SQUAREROOT].FloatPattern1.BitPattern;
+      m_FloatTestDescriptions[e_SQUAREROOT].FloatPattern1.BitPattern;
     ExpectedPattern.BitPattern =
-      m_FloatTestDecriptions[e_SQUAREROOT].FloatPattern2.BitPattern;
+      m_FloatTestDescriptions[e_SQUAREROOT].FloatPattern2.BitPattern;
 
     if(!SquareRoot<>(TestPattern1,
 		     ExpectedPattern,
-		     m_FloatTestDecriptions[e_SQUAREROOT].TestID,
-		     m_FloatTestDecriptions[e_SQUAREROOT].Description )) {g_iErrorCount++;};
+		     m_FloatTestDescriptions[e_SQUAREROOT].TestID,
+		     m_FloatTestDescriptions[e_SQUAREROOT].Description )) {g_iErrorCount++;};
 
-    RunFloatsSubset(&m_FloatTestDecriptions[e_ADD] ) ;
-    RunFloatsSubset(&m_FloatTestDecriptions[e_NEGATIVE_ADD] ) ;
-    RunFloatsSubset(&m_FloatTestDecriptions[e_ADD_QUARTER] ) ;
-    RunFloatsSubset(&m_FloatTestDecriptions[e_ADD_THREE_QUARTER] ) ;
-    RunFloatsSubset(&m_FloatTestDecriptions[e_NEGATIVE_ADD_QUARTER] ) ;
-    RunFloatsSubset(&m_FloatTestDecriptions[e_NEGATIVE_ADD_THREE_QUARTER] ) ;
+    RunFloatsSubset(&m_FloatTestDescriptions[e_ADD] ) ;
+    RunFloatsSubset(&m_FloatTestDescriptions[e_NEGATIVE_ADD] ) ;
+    RunFloatsSubset(&m_FloatTestDescriptions[e_ADD_QUARTER] ) ;
+    RunFloatsSubset(&m_FloatTestDescriptions[e_ADD_THREE_QUARTER] ) ;
+    RunFloatsSubset(&m_FloatTestDescriptions[e_NEGATIVE_ADD_QUARTER] ) ;
+    RunFloatsSubset(&m_FloatTestDescriptions[e_NEGATIVE_ADD_THREE_QUARTER] ) ;
 
   } 
   return t_bReturn;
 }
     
 bool RoundingTests::RunDoubleRounding()
+{
+
+  DoubleTestType TestPattern1 ;
+  __attribute__ ((unused)) DoubleTestType ReturnedPattern; 
+  DoubleTestType ExpectedPattern;
+  bool t_bReturn = true;
+
+  /* Set Rounding mode to zero */
+  if ((0 != fesetround(m_iTestType)) && (m_iTestType == fegetround())){
+    fprintf(stderr, "Failed to change Round %s mode\n",
+            m_cRoundingTypeString);
+    t_bReturn = false;
+  } else {
+
+    //Square Root
+    TestPattern1.BitPattern =
+      m_DoubleTestDescriptions[e_SQUAREROOT].FloatPattern1.BitPattern;
+    ExpectedPattern.BitPattern =
+      m_DoubleTestDescriptions[e_SQUAREROOT].FloatPattern2.BitPattern;
+
+    if(!SquareRoot<>(TestPattern1,
+                     ExpectedPattern,
+                     m_DoubleTestDescriptions[e_SQUAREROOT].TestID,
+                     m_DoubleTestDescriptions[e_SQUAREROOT].Description )) {g_iErrorCount++;};
+
+    RunDoubleSubset(&m_DoubleTestDescriptions[e_ADD] ) ;
+    RunDoubleSubset(&m_DoubleTestDescriptions[e_NEGATIVE_ADD] ) ;
+    RunDoubleSubset(&m_DoubleTestDescriptions[e_ADD_QUARTER] ) ;
+    RunDoubleSubset(&m_DoubleTestDescriptions[e_ADD_THREE_QUARTER] ) ;
+    RunDoubleSubset(&m_DoubleTestDescriptions[e_NEGATIVE_ADD_QUARTER] ) ;
+    RunDoubleSubset(&m_DoubleTestDescriptions[e_NEGATIVE_ADD_THREE_QUARTER] ) ;
+
+  }
+  return t_bReturn;
+}
+
+bool RoundingTests::RunDoubleSubset(DoubleTestDescription *DoubleArthmeticTests) const 
 {
 #if DO_DOUBLES
   DoubleTestType TestPattern1 ;
@@ -191,16 +229,6 @@ bool RoundingTests::RunDoubleRounding()
 	       DoubleArthmeticTests[e_DIVIDE].TestID,
 	       DoubleArthmeticTests[e_DIVIDE].Description )) {g_iErrorCount++;};
 
-  //Square Root 
-  TestPattern1.BitPattern =
-    DoubleArthmeticTests[e_SQUAREROOT].FloatPattern1.BitPattern;
-  ExpectedPattern.BitPattern =
-    DoubleArthmeticTests[e_SQUAREROOT].FloatPattern2.BitPattern;
-
-  if(!SquareRoot<>(TestPattern1,
-		   ExpectedPattern,
-		   DoubleArthmeticTests[e_SQUAREROOT].TestID,
-		   DoubleArthmeticTests[e_SQUAREROOT].Description )) {g_iErrorCount++;};
 
 #endif
 

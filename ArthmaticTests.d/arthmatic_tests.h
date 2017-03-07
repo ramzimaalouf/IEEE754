@@ -6,6 +6,7 @@
  * 
  * Description : 
  *     -- the is the interface of the test that will be used by main()
+ *
  * Version : 0.1.0
  * 
  * Created Date : November 05 2016
@@ -15,8 +16,8 @@
  * 
  ******************************************************************************/
 
-#if !defined(ARTHMaTIC_TESTS_H_)
-#define ARTHMaTIC_TESTS_H_
+#if !defined(ARTHMATIC_TESTS_H_)
+#define ARTHMATIC_TESTS_H_
 
 class MathTests
 {

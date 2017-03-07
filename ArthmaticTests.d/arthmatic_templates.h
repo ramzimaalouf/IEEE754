@@ -2,7 +2,7 @@
  * Copyleft 2025 Ramzi Maalouf (fourthmuskeeter@yahoo.com).
  *      All lefts reserved.
  * 
- * File Name : ArthmaticTemplates.c
+ * File Name : ArthmaticTemplates.h
  * 
  * Description : 
  *   -- this defines the templates for testing.  This will be used for float

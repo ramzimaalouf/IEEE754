@@ -2,9 +2,10 @@
  * Copyright 2016 Ramzi Maalouf (fourthmuskeeter@yahoo.com).
  *      All rights reserved.
  * 
- * File Name : arthmetic_tests.c
+ * File Name : conversion_tests.c
  * 
  * Description : 
+ *   -- This is method definition for the class ConversionTests
  * 
  * Version : 0.1.0
  * 
@@ -28,6 +29,7 @@ ConversionTests::ConversionTests ()
 
 ConversionTests::~ConversionTests ()
 {
+  m_bConstructionStatus  = false;
   return;
 }
 
@@ -35,6 +37,7 @@ bool ConversionTests::ReturnConstructionStatus () const
 {
   return m_bConstructionStatus;
 }
+
 bool ConversionTests::RunAll()
 {
   RunFloatConversionTests();
