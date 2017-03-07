@@ -38,6 +38,9 @@ template <class TypeA, class TypeB, class TypeC>
     fprintf(stdout,t_pFormat,"Expected ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern);
     fprintf(stdout,t_pFormat,"Difference ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern ^ Result.BitPattern);
     fprintf(stdout,"\n");
+  if (g_iVerbosityFlag >= 3*DEFAULT_DEBUG_LEVEL) {
+    fprintf(stdout,"Test ID: %4.4d ----- %.24f + %.24f\n",TestID,Input1.Number,Input2.Number);
+    }
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
     fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
@@ -65,6 +68,9 @@ template <class TypeA, class TypeB, class TypeC>
     fprintf(stdout,t_pFormat,"Expected ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern);
     fprintf(stdout,t_pFormat,"Difference ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern ^ Result.BitPattern);
     fprintf(stdout,"\n");
+  if (g_iVerbosityFlag >= 3*DEFAULT_DEBUG_LEVEL) {
+    fprintf(stdout,"Test ID: %4.4d ----- %.24f - %.24f\n",TestID,Input1.Number,Input2.Number);
+    }
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
     fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
@@ -89,6 +95,9 @@ template <class TypeA, class TypeB, class TypeC>
     fprintf(stdout,t_pFormat,"Expected ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern);
     fprintf(stdout,t_pFormat,"Difference ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern ^ Result.BitPattern);
     fprintf(stdout,"\n");
+  if (g_iVerbosityFlag >= 3*DEFAULT_DEBUG_LEVEL) {
+    fprintf(stdout,"Test ID: %4.4d ----- %.24f * %.24f\n",TestID,Input1.Number,Input2.Number);
+    }
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL) {
     fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
@@ -114,6 +123,9 @@ template <class TypeA, class TypeB, class TypeC>
     fprintf(stdout,t_pFormat,"Expected ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern);
     fprintf(stdout,t_pFormat,"Difference ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern ^ Result.BitPattern);
     fprintf(stdout,"\n");
+  if (g_iVerbosityFlag >= 3*DEFAULT_DEBUG_LEVEL) {
+    fprintf(stdout,"Test ID: %4.4d ----- %.24f / %.24f\n",TestID,Input1.Number,Input2.Number);
+    }
     t_bReturn = false;
   } else  if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL)  {
     fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
@@ -139,6 +151,9 @@ template <class TypeA, class TypeB, class TypeC>
     fprintf(stdout,t_pFormat,"Expected ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern);
     fprintf(stdout,t_pFormat,"Difference ", t_iNumberOfBytes*2,t_iNumberOfBytes*2,Expected.BitPattern ^ Result.BitPattern);
     fprintf(stdout,"\n");
+  if (g_iVerbosityFlag >= 3*DEFAULT_DEBUG_LEVEL) {
+    fprintf(stdout,"Test ID: %4.4d ----- %.24f | %.24f\n",TestID,Input1.Number,Input2.Number);
+    }
     t_bReturn = false;
   } else   if (g_iVerbosityFlag >= DEFAULT_DEBUG_LEVEL)  {
     fprintf(stdout, "Test ID: %4.4d %-40.40s ",TestID, Description);
