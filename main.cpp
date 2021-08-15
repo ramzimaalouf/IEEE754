@@ -52,6 +52,7 @@ static struct option long_options[] =
     {"version", no_argument,0,'v'},
     {0, 0, 0, 0}
   };
+
 /* prototypes */
 void Usage (char *Name);
 void Version (char *Name);
