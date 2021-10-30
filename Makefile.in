@@ -16,40 +16,47 @@
 #*
 #******************************************************************************/
 GXX=@CXX@
+GXXPP=@CXX@
 GCC=@CC@
+GPP=@CC@
 OBJDUMP=@OBJDUMP@
 STRIP=@STRIP@
 NM=@NM@
 LD=@CXX@
 
 TARGET=ieee_754_1985
-CPP_SOURCES=main.cpp ArthmaticTests.d/arthmatic_tests.cpp ComparisonTests.d/comparison_tests.cpp ConversionTests.d/conversion_tests.cpp RoundingTests.d/rounding_tests.cpp 
+CXX_SOURCES=
+CXX_SOURCES=main.cpp ArthmaticTests.d/arthmatic_tests.cpp ComparisonTests.d/comparison_tests.cpp ConversionTests.d/conversion_tests.cpp RoundingTests.d/rounding_tests.cpp 
 C_ALWAYS_COMPILE=time.c
 A_SOURCES= 
 C_ALWAYS_OBJS=${C_ALWAYS_COMPILE:%.c=%.o}
 C_OBJS=${C_SOURCES:%.c=%.o}
-CPP_OBJS=${CPP_SOURCES:%.cpp=%.o}
+CXX_OBJS=${CXX_SOURCES:%.cpp=%.o}
 A_OBJS=${A_SOURCES:%.s=%.o} 
-OBJS=${C_OBJS} ${A_OBJS} ${CPP_OBJS}
+OBJS=${C_OBJS} ${A_OBJS} ${CXX_OBJS} ${C_ALWAYS_OBJS}
 C_SOURCES_DEPENDS=${C_ALWAYS_COMPILE:%.c=%.d} ${C_SOURCES:%.c=%.d}
-CPP_SOURCES_DEPENDS=${CPP_SOURCES:%.cpp=%.d}
+CXX_SOURCES_DEPENDS=${CXX_SOURCES:%.cpp=%.d}
 
 INCLUDE_DIRS=
-CPPFLAGS+=@CPPFLAGS@ ${INCLUDE_DIRS} -DBUG_RELEASE_REVISION=\"`date "+%j%m%Y"`\" -Wall -frounding-math -fsignaling-nans
+CXXFLAGS+=@CXXFLAGS@ ${INCLUDE_DIRS} -DBUG_RELEASE_REVISION=\"`date "+%j%m%Y"`\" -Wall -frounding-math -fsignaling-nans
+CFLAGS+=@CFLAGS@ ${INCLUDE_DIRS} -DBUG_RELEASE_REVISION=\"`date "+%j%m%Y"`\" -Wall -frounding-math -fsignaling-nans
 CFLAGS+=-O2 
-CXXFLAGS=@CXXFLAGS@
+CPPFLAGS=@CPPFLAGS@
+CXXFLAGS+=-O2 
+CXXPPFLAGS=@CXXPPFLAGS@
 LIB_PATHS=
 LDFLAGS+=${LIB_PATHS} @LIBS@ @LDFLAGS@ 
 .SUFFIXES: .c .o .d .cpp
 ifdef DEBUG
 CFLAGS+=-g -pg
+CXXFLAGS+=-g -pg
 endif
 
 all: ${TARGET} 
 
-${TARGET}: ${OBJS} Makefile  ${C_ALWAYS_OBJS} ${C_SOURCES_DEPENDS} ${CPP_SOURCES_DEPENDS}
+${TARGET}: ${OBJS} Makefile  ${C_ALWAYS_OBJS} ${CXX_SOURCES_DEPENDS}
 	@echo "(LINKING)"
-	@${LD} ${LDFLAGS} ${OBJS} ${C_ALWAYS_OBJS} -o $@
+	@${LD} ${LDFLAGS} ${OBJS} -o $@
 	@${OBJDUMP} -D $@ > $@.dissassembled
 ifndef DEBUG
 	@${STRIP} $@
@@ -61,23 +68,23 @@ endif
 
 .cpp.o:
 	@echo "(COMPILING) $<"
-	@${GXX} ${CPPFLAGS} ${CFLAGS} ${CXXFLAGS} -c $< -o $*.o
+	@${GXX} ${CXXPPFLAGS} ${CXXFLAGS}  -c $< -o $*.o
 
 %.d: %.c
 	@echo "(GENERATING DEPENDENCY) $*.d"
-	@${GCC} ${CPPFLAGS} -M -MT $*.o $< > $*.d
+	@${GPP} ${CPPFLAGS} -M -MT $*.o $< > $*.d
 
 %.d: %.cpp
 	@echo "(GENERATING DEPENDENCY) $*.d"
-	@${GXX} ${CPPFLAGS} ${CXXFLAGS} -M -MT $*.o $< > $*.d
+	@${GXXPP} ${CXXPPFLAGS}  -M -MT $*.o $< > $*.d
 
 .PHONY: clean veryclean 
 
-${C_ALWAYS_OBJS}: ${C_SOURCES} ${CPP_SOURCES} ${C_ALWAYS_COMPILE} Makefile ${C_SOURCES_DEPENDS} ${CPP_SOURCES_DEPENDS} 
+${C_ALWAYS_OBJS}: ${C_SOURCES} ${CXX_SOURCES} ${C_ALWAYS_COMPILE} Makefile ${C_SOURCES_DEPENDS} ${CXX_SOURCES_DEPENDS} 
 ${C_OBJS}: ${C_SOURCES} Makefile ${C_SOURCES_DEPENDS}
-${CPP_OBJS}: ${CPP_SOURCES} Makefile ${CPP_SOURCES_DEPENDS}
+${CXX_OBJS}: ${CXX_SOURCES} Makefile ${CXX_SOURCES_DEPENDS}
 ${C_SOURCES_DEPENDS}: Makefile
-${CPP_SOURCES_DEPENDS}: Makefile
+${CXX_SOURCES_DEPENDS}: Makefile
 
 clean:
 	@echo "(CLEANING)"
@@ -86,7 +93,7 @@ clean:
 veryclean: clean
 	@echo "(SUPER CLEANDING)"
 	@rm -rf ${C_SOURCES_DEPENDS} 
-	@rm -rf ${CPP_SOURCES_DEPENDS} 
+	@rm -rf ${CXX_SOURCES_DEPENDS} 
 	@rm -rf config.log config.status 
 	@rm -rf autom4te.cache
 
@@ -96,4 +103,4 @@ distclean: veryclean
 	@rm -rf config.h
 
 -include ${C_SOURCES_DEPENDS} 
--include ${CPP_SOURCES_DEPENDS}
+-include ${CXX_SOURCES_DEPENDS}
